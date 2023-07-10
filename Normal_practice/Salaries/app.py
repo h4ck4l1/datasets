@@ -6,7 +6,7 @@ import subprocess
 files = glob("/content/Salaries/pages/*.ipynb")
 
 for f in files:
-    py_file = "." + f.split('.')[-2] + ".py"
+    py_file = "/content/Salaries/pages" + f.split('.')[-2] + ".py"
     subprocess.run("colab-convert "+f+" "+py_file,shell=True)
 
 
