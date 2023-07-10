@@ -10,7 +10,7 @@ for f in files:
     subprocess.run("colab-convert "+f+" "+py_file,shell=True)
 
 
-app = Dash(__name__,use_pages=True,pages_folder='./Salaries/pages')
+app = Dash(__name__,use_pages=True,pages_folder='Salaries/pages')
 
 app.layout = html.Div([
     html.H1("بسمله حرهما نراهم",style={'color':'green'}),
