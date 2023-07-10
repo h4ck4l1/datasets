@@ -3,14 +3,14 @@ from dash import Dash,dcc,html,page_container,page_registry
 from glob import glob
 import subprocess
 
-files = glob("./pages/*.ipynb")
+files = glob(".Salaries/pages/*.ipynb")
 
 for f in files:
     py_file = "." + f.split('.')[-2] + ".py"
     subprocess.run("colab-convert "+f+" "+py_file,shell=True)
 
 
-app = Dash(__name__,use_pages=True,pages_folder='./pages')
+app = Dash(__name__,use_pages=True,pages_folder='.Salaries/pages')
 
 app.layout = html.Div([
     html.H1("بسمله حرهما نراهم",style={'color':'green'}),
