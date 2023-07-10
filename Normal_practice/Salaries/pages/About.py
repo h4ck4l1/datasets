@@ -17,7 +17,7 @@ Data Science Job Salaries Dataset contains 11 columns, each are:
 - Company Location:   The country of the employer's main office or contracting branch.
 - Company Size:       The median number of people that worked for the company during the year.  
 
-Links to Original Notebooks [Sal.ipynb](https://github.com/h4ck4l1/datasets/blob/main/Normal_practice/Salaries/pages/sal.ipynb)  
+[Sal.ipynb](https://github.com/h4ck4l1/datasets/blob/main/Normal_practice/Salaries/pages/sal.ipynb)  
 [Statistical Analysis.ipynb](https://github.com/h4ck4l1/datasets/blob/main/Normal_practice/Salaries/pages/Statistical_analysis.ipynb)  
 These are converted to .py files using colab-convert for dash to work as its only native to default python files  
 
