@@ -1,5 +1,3 @@
-# %%
-# !! {"metadata":# !! {}
 import numpy as np
 import pandas as pd
 import time
@@ -15,50 +13,23 @@ import statsmodels.api as sm
 from scipy import stats
 import scipy.stats as ss
 from dash import Dash,html,dcc,Input,Output,callback,register_page,dash_table
-#<cc-ac> %matplotlib inline
 
-# %%
-# !! {"metadata":# !! {}
 salaries = pd.read_csv('https://github.com/h4ck4l1/datasets/raw/main/Normal_practice/ds_salaries.csv')
 
-# %%
-# !! {"metadata":# !! {}
+
 salaries['work_year'] = salaries.work_year.astype(str)
 
-# %%
-# !! {"metadata":# !! {}
-salaries.head()
-
-# %%
-# !! {"metadata":# !! {}
 salaries.drop(['job_title','salary_currency','salary'],inplace=True,axis=1)
 
-# %%
-# !! {"metadata":# !! {}
-salaries.head()
-
-# %%
-# !! {"metadata":# !! {}
-salaries.columns
-
-# %%
-# !! {"metadata":# !! {}
 idx = pd.IndexSlice
-
-# %%
-# !! {"metadata":# !! {}
 years = salaries.work_year.unique()
 exp_levels = salaries.experience_level.unique()
 emp_types = salaries.employment_type.unique()
 
-# %%
-# !! {"metadata":# !! {}
 """
 ## Message
 """
 
-# %%
-# !! {"metadata":# !! {}
 msgs = '''
 The statistical analysis has been carried out here and explained in brief terms  
 The tests used are  
@@ -67,14 +38,10 @@ The tests used are
 
 '''
 
-# %%
-# !! {"metadata":# !! {}
 """
 ## Mean Analysis
 """
 
-# %%
-# !! {"metadata":# !! {}
 Mean_Analysis = make_subplots(rows=2,cols=2,horizontal_spacing=0.2,vertical_spacing=0.2)
 for i,year in enumerate(salaries.work_year.unique()):
     sal = salaries.query(f"work_year == '{year}'").salary_in_usd.to_numpy()
@@ -87,17 +54,12 @@ for i,year in enumerate(salaries.work_year.unique()):
     Mean_Analysis.add_annotation(text=f"count: {len(sal)}",font=dict(size=20),bordercolor="white",showarrow=False,x=0.8,xanchor="center",y=1.1,yref='y domain',yanchor="bottom",row=((i+1)//3)+1,col=(i%2)+1)
 
 Mean_Analysis.update_layout(width=1000,height=700,showlegend=False)
-Mean_Analysis.show()
 
-# %%
-# !! {"metadata":# !! {}
 year_2020 = salaries.query("work_year == '2020'").salary_in_usd.to_numpy()
 year_2021 = salaries.query("work_year == '2021'").salary_in_usd.to_numpy()
 year_2022 = salaries.query("work_year == '2022'").salary_in_usd.to_numpy()
 year_2023 = salaries.query("work_year == '2023'").salary_in_usd.to_numpy()
 
-# %%
-# !! {"metadata":# !! {}
 mean_inf = '''
 The Higher count Years are very much approximated to nomral plot but the 76 tends to skew.
 As the lesser count plot is concave up w.r.t to the normal q-q line means that it is right skewed.
@@ -112,26 +74,16 @@ Doing variance test
 
 '''
 
-# %%
-# !! {"metadata":# !! {}
 from scipy.stats import levene
 
-# %%
-# !! {"metadata":# !! {}
 levene(year_2020,year_2021,year_2022,year_2023)
 
-# %%
-# !! {"metadata":# !! {}
 sm.stats.anova_oneway((year_2020,year_2021,year_2022,year_2023),use_var='equal')
 
-# %%
-# !! {"metadata":# !! {}
 """
 ## Experience Level Mean Analysis
 """
 
-# %%
-# !! {"metadata":# !! {}
 sal = salaries.copy()
 sal.set_index(['work_year','experience_level'],inplace=True)
 sal.sort_index(inplace=True)
@@ -148,13 +100,9 @@ for i,year_exp in enumerate(sal.index.unique()):
 
 exp_level_mean.update_layout(height=800,hovermode=False,showlegend=False)
 
-# %%
-# !! {"metadata":# !! {}
 tab_vals = salaries.groupby(['work_year','experience_level']).aggregate({'salary_in_usd':'mean'}).unstack(level=1)
 tab_vals.reset_index(inplace=True)
 
-# %%
-# !! {"metadata":# !! {}
 l = []
 for item in tab_vals.to_dict('records'):
     d = {}
@@ -162,8 +110,6 @@ for item in tab_vals.to_dict('records'):
         d[key[1]] = value
     l.append(d)
 
-# %%
-# !! {"metadata":# !! {}
 table1 = dash_table.DataTable(
         data=l,
         columns=[{'name': [col[0],col[1]], 'id': col[1]} for col in tab_vals.columns],
@@ -172,8 +118,7 @@ table1 = dash_table.DataTable(
         style_cell={'textAlign':'left'}
     )
 
-# %%
-# !! {"metadata":# !! {}
+
 exp_level_mean_inf = '''
 Assumptions:  
   - Independent samples are collected (i.e., every instance of one category is independent of another instance of that category regardless of other categories)  
@@ -206,8 +151,6 @@ For 2023
 **Therefore we conclude that All the Means across their experience levels are statistically different**
 '''
 
-# %%
-# !! {"metadata":# !! {}
 for y in ['2022','2023']:
     levene(
         sal.loc[idx[y,exp_levels[0]],'salary_in_usd'].to_numpy(),
@@ -216,8 +159,7 @@ for y in ['2022','2023']:
         sal.loc[idx[y,exp_levels[3]],'salary_in_usd'].to_numpy()
         )[1]
 
-# %%
-# !! {"metadata":# !! {}
+
 sm.stats.anova_oneway((
     sal.loc[idx['2022',exp_levels[0]],'salary_in_usd'].to_numpy(),
     sal.loc[idx['2022',exp_levels[1]],'salary_in_usd'].to_numpy(),
@@ -225,8 +167,7 @@ sm.stats.anova_oneway((
     sal.loc[idx['2022',exp_levels[3]],'salary_in_usd'].to_numpy()
     ),use_var="equal")[1]
 
-# %%
-# !! {"metadata":# !! {}
+
 sm.stats.anova_oneway((
     sal.loc[idx['2023',exp_levels[0]],'salary_in_usd'].to_numpy(),
     sal.loc[idx['2023',exp_levels[1]],'salary_in_usd'].to_numpy(),
@@ -234,8 +175,7 @@ sm.stats.anova_oneway((
     sal.loc[idx['2023',exp_levels[3]],'salary_in_usd'].to_numpy()
     ),use_var="unequal")[1]
 
-# %%
-# !! {"metadata":# !! {}
+
 stats.kruskal(
     sal.loc[idx['2020',exp_levels[0]],'salary_in_usd'].to_numpy(),
     sal.loc[idx['2020',exp_levels[1]],'salary_in_usd'].to_numpy(),
@@ -243,24 +183,15 @@ stats.kruskal(
     sal.loc[idx['2020',exp_levels[3]],'salary_in_usd'].to_numpy()
 )
 
-# %%
-# !! {"metadata":# !! {}
+
 """
 ## Employment Type
 """
 
-# %%
-# !! {"metadata":# !! {}
-salaries.head()
-
-# %%
-# !! {"metadata":# !! {}
 sal = salaries.copy()
 sal.set_index(['work_year','employment_type'],inplace=True)
 sal.sort_index(inplace=True)
 
-# %%
-# !! {"metadata":# !! {}
 emp_type_mean = make_subplots(rows=4,cols=4)
 for i,year_emp in enumerate(sal.index.unique()):
     stan = StandardScaler().fit_transform(sal.loc[year_emp,'salary_in_usd'].to_numpy().reshape(-1,1)).ravel()
@@ -275,16 +206,11 @@ emp_type_mean.update_layout(height=800,showlegend=False,hovermode=False)
 emp_type_mean.show()
 
 
-# %%
-# !! {"metadata":# !! {}
 exp_type_mean_inf = '''
 As we can observe the disparity between the respective same level values is high due to the lower count, which make the analysis non parametric   
 we can still do welschs anova which will be less reliable than the normal anova
 so we rest the case that year level inferences between employment types is avoided
 '''
-
-# %%
-# !! {"metadata":# !! {}
 
 register_page(__name__,order=3,path='/pages/Statistical_analysis',name="Statistial Analysis",title="Statistical Analysis")
 
@@ -323,29 +249,3 @@ def update_graph(drop1):
     elif drop1 == options[2]:
         time.sleep(2)
         return dcc.Graph(figure=exp_level_mean),exp_level_mean_inf
-
-# %%
-# !! {"metadata":# !! {}
-
-
-# %%
-# !! {"main_metadata":{
-# !!   "kernelspec": {
-# !!     "display_name": "base",
-# !!     "language": "python",
-# !!     "name": "python3"
-# !!   },
-# !!   "language_info": {
-# !!     "codemirror_mode": {
-# !!       "name": "ipython",
-# !!       "version": 3
-# !!     },
-# !!     "file_extension": ".py",
-# !!     "mimetype": "text/x-python",
-# !!     "name": "python",
-# !!     "nbconvert_exporter": "python",
-# !!     "pygments_lexer": "ipython3",
-# !!     "version": "3.9.13"
-# !!   },
-# !!   "orig_nbformat": 4
-# !! }}
