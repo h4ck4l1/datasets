@@ -228,7 +228,7 @@ Company_inf = '''
 The Mean salary of Israel is highest followed by Puero Rico and United States, though the count of United states is far higher than rest, so most of the mean salaries can be highly skewed
 '''
 
-register_page(__name__,order=2,path='/pages/sal',name="Visual Presentation",title="Visual Presentation")
+register_page(__name__,order=2,path='/Visual_presentation',name="Visual Presentation",title="Visual Presentation")
 
 layout = html.Div([
     html.Br(),
