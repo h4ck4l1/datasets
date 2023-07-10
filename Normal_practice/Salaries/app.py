@@ -1,7 +1,7 @@
 from dash import Dash,dcc,html,page_container,page_registry
 
 
-app = Dash(__name__,use_pages=True,pages_folder='./pages')
+app = Dash(__name__,use_pages=True,pages_folder='Salaries/pages')
 
 app.layout = html.Div([
     html.H1("بسمله حرهما نراهم",style={'color':'green'}),
