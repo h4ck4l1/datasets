@@ -113,7 +113,6 @@ emp_yoy.update_layout(barmode='stack',height=650)
 emp_yoy.update_xaxes(tickfont=dict(size=18),title=dict(text="Work Year",font=dict(size=25)))
 emp_yoy.update_yaxes(tickfont=dict(size=18),title=dict(text="Mean by Type in USD",font=dict(size=25)))
 emp_yoy.add_annotation(text="Employment Type Salary in USD YoY",showarrow=False,font=dict(size=30),xanchor="center",yanchor="bottom",xref='x domain',yref='y domain',y=1.05,bordercolor="white")
-clear_output()
 
 """
 #### Employment Inference
@@ -188,7 +187,6 @@ remote_pie.update_layout(
     )]
 )
 remote_pie.update_layout(autosize=False,height=600,width=1100,margin=dict(t=5,r=10),legend=dict(font=dict(size=20),xanchor="right",yanchor="top",x=0,y=0.05))
-clear_output()
 
 """
 #### Remote ratio inference
