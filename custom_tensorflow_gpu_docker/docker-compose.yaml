@@ -16,6 +16,7 @@ services:
           - driver: nvidia
             count: 1
             capabilities: [gpu]
+          memory: 16G
 volumes:
   my_app:
 
