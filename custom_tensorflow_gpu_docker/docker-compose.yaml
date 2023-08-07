@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  tensorflow:
+    build:
+      context: .
+      network: host
+    ports:
+      - 8888:8888
+    volumes:
+      - ./tf-sohail:/tf-sohail
+      - /usr/local/lib/python3.8:/root/usr/lib/python3.8
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+volumes:
+  my_app:
+
+
+  
