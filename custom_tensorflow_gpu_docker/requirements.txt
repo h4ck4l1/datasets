@@ -1,0 +1,15 @@
+jupyterlab
+tensorflow_datasets
+pandas
+matplotlib
+seaborn
+scikit-learn
+plotly
+keras_tuner
+dash
+scipy
+statsmodels
+pycountry
+xgboost
+opencv-python
+lightgbm
