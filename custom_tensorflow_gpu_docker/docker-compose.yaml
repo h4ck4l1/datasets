@@ -8,7 +8,6 @@ services:
       - 8888:8888
     volumes:
       - ./tf-sohail:/tf-sohail
-      - /usr/local/lib/python3.8:/root/usr/lib/python3.8
     deploy:
       resources:
         reservations:
@@ -16,8 +15,7 @@ services:
           - driver: nvidia
             count: 1
             capabilities: [gpu]
-volumes:
-  my_app:
+          memory: 16G
 
 
   
