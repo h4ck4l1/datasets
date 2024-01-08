@@ -1,4 +1,4 @@
-#!/usr/local/bin/conda
+#!/usr/local/bin/conda/bin
 
 from __future__ import absolute_import,division
 import os,sys,time,re,math,contextlib2,gc
