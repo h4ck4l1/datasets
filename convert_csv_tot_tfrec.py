@@ -1,5 +1,3 @@
-#!/usr/local/bin/conda python3
-
 from __future__ import absolute_import,division
 import os,sys,time,re,math,contextlib2,gc
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
