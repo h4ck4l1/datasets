@@ -1,4 +1,4 @@
-#!/usr/locaol/bin/bash
+#!/usr/locaol/bin/conda
 
 from __future__ import absolute_import,division
 import os,sys,time,re,math,contextlib2,gc
