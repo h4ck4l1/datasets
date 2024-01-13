@@ -6,6 +6,7 @@ kaleido
 scikit-learn
 plotly
 keras_tuner
+keras-nightly
 tqdm
 dash
 scipy
@@ -23,7 +24,12 @@ tensorflow_hub
 tensorflow_addons
 tensorflow_text
 transformers
-datasets
+tensorflow_datasets
 einops
+object_detection
 keras-cv
 keras-nlp
+contextlib2
+pyarrow
+huggingface_hub
+google-cloud-storage
