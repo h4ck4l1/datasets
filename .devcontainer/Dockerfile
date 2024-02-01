@@ -25,12 +25,12 @@ RUN apt-get update \
     && ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} */tmp/common-setup.sh" | sha256sum -c -)) \
     && /bin/bash /tmp/common-setup.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
     && rm /tmp/common-setup.sh \
-    && apt-get -y install --no-install-recommends git
-    && apt-get -y install iputils-ping
-    && pip install --upgrade pip
-    && pip install -q -U -r requirements.txt
-    && pip install "dask[complete]"
-    && pip install miceforest --no-cache-dir
+    && apt-get -y install --no-install-recommends git \
+    && apt-get -y install iputils-ping \
+    && pip install --upgrade pip \
+    && pip install -q -U -r requirements.txt \
+    && pip install "dask[complete]" \
+    && pip install miceforest --no-cache-dir \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
