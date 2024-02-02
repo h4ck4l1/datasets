@@ -2,5 +2,7 @@
     "editor.fontFamily": "Victor Mono",
     "editor.codeLensFontFamily": "Victor Mono",
     "editor.inlayHints.fontFamily": "Victor Mono",
-    "markdown.preview.fontFamily": "Fira Code"
+    "markdown.preview.fontFamily": "Fira Code",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic"
 }
