@@ -1,10 +1,10 @@
 {
     "workbench.colorCustomizations": {
         "editor.background": "#000000",
-        "notebook.cellEditorBackground": "#1a1c1d",
-        "editor.lineHighlightBackground": "#1a1c1d",
-        "editor.lineHighlightBorder": "#1a1c1d",
-        "notebook.editorBackground": "#000000"
+        "notebook.cellEditorBackground": "#262630",
+        "editor.lineHighlightBackground": "#262630",
+        "editor.lineHighlightBorder": "#262630",
+        "notebook.editorBackground": "#202020"
     },
     "editor.tokenColorCustomizations": {
         "comments": "#7cb4a3",
@@ -69,13 +69,6 @@
                     "foreground": "#7cb4a3",
                     "fontStyle": "italic"
                 }
-            },
-            {
-                "scope":"",
-                "settings": {
-                    "foreground": "#d6d6d6",
-                    "fontStyle": "bold"
-                }
             }
         ]
     },
@@ -87,7 +80,7 @@
     "notebook.output.fontFamily": "Victor Mono",
     "markdown.preview.fontFamily": "Victor Mono",
     "editor.cursorStyle": "line",
-    "editor.cursorBlinking": "solid",
+    "editor.cursorBlinking": "blink",
     "editor.cursorWidth": 1,
     "workbench.colorTheme": "Default Dark+",
     "cloudcode.project": "kaggle-406814",
