@@ -1,8 +1,103 @@
 {
+    "workbench.colorCustomizations": {
+        "editor.background": "#000000",
+        "notebook.cellEditorBackground": "#1a1c1d",
+        "editor.lineHighlightBackground": "#1a1c1d",
+        "editor.lineHighlightBorder": "#1a1c1d",
+        "notebook.editorBackground": "#000000"
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "#7cb4a3",
+        "keywords": "#75ff9e",
+        "numbers": "#FF0000",
+        "strings": "#db4545",
+        "types": "#44a5f5",
+        "variables": "#d6d6d6",
+        "textMateRules": [
+            {
+                "scope":"keyword.operator",
+                "settings": {
+                    "foreground": "#a205fd",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope":"constant.language",
+                "settings": {
+                    "foreground": "#75ff9e",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope":"variable.other",
+                "settings": {
+                    "foreground": "#44a5f5",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"variable.other.readwrite",
+                "settings": {
+                    "foreground": "#d6d6d6",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"entity.name.namespace",
+                "settings": {
+                    "foreground": "#d6d6d6",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"entity.name.function",
+                "settings": {
+                    "foreground": "#44a5f5",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"keyword.control",
+                "settings": {
+                    "foreground": "#75ff9e",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope":"comment",
+                "settings": {
+                    "foreground": "#7cb4a3",
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope":"",
+                "settings": {
+                    "foreground": "#d6d6d6",
+                    "fontStyle": "bold"
+                }
+            }
+        ]
+    },
+    "security.workspace.trust.untrustedFiles": "open",
     "editor.fontFamily": "Victor Mono",
+    "editor.fontSize": 20,
+    "editor.fontLigatures": "'ss08'",
     "editor.codeLensFontFamily": "Victor Mono",
-    "editor.inlayHints.fontFamily": "Victor Mono",
-    "markdown.preview.fontFamily": "Fira Code",
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "notebook.output.fontFamily": "Victor Mono",
+    "markdown.preview.fontFamily": "Victor Mono",
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorWidth": 1,
+    "workbench.colorTheme": "Default Dark+",
+    "cloudcode.project": "kaggle-406814",
+    "git.postCommitCommand": "sync",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "jupyter.askForKernelRestart": false,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "off",
+    "editor.minimap.enabled": false
+
 }
