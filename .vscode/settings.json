@@ -15,6 +15,7 @@
     "terminal.integrated.fontFamily": "Monaco",
     "editor.inlineSuggest.fontFamily": "Monaco",
     "editor.fontSize": 26,
+    "notebook.markup.fontSize": 21,
     "editor.fontLigatures": true,
     "editor.codeLensFontFamily": "Monaco",
     "notebook.output.fontFamily": "Monaco",
