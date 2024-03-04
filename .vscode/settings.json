@@ -4,7 +4,7 @@
         "notebook.cellEditorBackground": "#000000",
         "editor.lineHighlightBackground": "#000000",
         "editor.lineHighlightBorder": "#000000",
-        "notebook.editorBackground": "#202020",
+        "notebook.editorBackground": "#000000",
         "editorCursor.background": "#ffffff",
         "editorCursor.foreground": "#ffffff"
     },
