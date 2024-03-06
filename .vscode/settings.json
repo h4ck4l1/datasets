@@ -38,12 +38,12 @@
     "warmUp.switchProgrammingLanguage": "python",
     "warmUp.changeCount": "120",
     "warmUp.changeTypingMode": "words (against the clock)",
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.quickSuggestions": {
-        "other": "off",
-        "comments": "off",
-        "strings": "off"
-    },
+    // "editor.acceptSuggestionOnCommitCharacter": false,
+    // "editor.quickSuggestions": {
+    //     "other": "off",
+    //     "comments": "off",
+    //     "strings": "off"
+    // },
     "editor.suggestOnTriggerCharacters": false,
     "notebook.scrolling.experimental.anchorToFocusedCell": "on",
     "notebook.scrolling.revealNextCellOnExecute": "fullCell",
@@ -52,8 +52,8 @@
     "notebook.stickyScroll.mode": "indented",
     "editor.stickyScroll.scrollWithEditor": true,
     "notebook.output.scrolling": true,
-    "editor.tabCompletion": "on",
-    "editor.parameterHints.enabled": false,
+    // "editor.tabCompletion": "on",
+    // "editor.parameterHints.enabled": false,
     "warmUp.switchNaturalLanguage": "english",
     "remoteHub.uncommittedChangesOnEntry": "none"
 }
