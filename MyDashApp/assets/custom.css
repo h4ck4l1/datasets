@@ -1,0 +1,493 @@
+:root {
+/* <------------------------ MAIN PAGE ------------------------> */
+  --total-page-darkshade-color: #442c94;
+  --text-color: #3dc2ec;
+/* <---------------------- TITLE -------------------------------> */
+  --dropdown-title-button-color: #4b70f5;
+  --dropdown-title-hover-color: #4c3bcf;
+  --dropdown-title-image-height: 50px; /* same as width */
+  --dropdown-title-button-border-radius: 10px;
+  --dropdown-button-width: 300px;
+  --dropdown-button-height: 80px;
+  --dropdown-button-font-size: 12px;
+  --dropdown-button-border-size: 2px;
+  --dropdown-button-hover-color: #3a007c;
+  --dropdown-button-hover-font-color: #3dc2ec;
+/* <--------------------- OPTIONS ------------------------------> */
+  --dropdown-options-width: 300px;
+  --dropdown-options-max-height: 250px;
+  --dropdown-options-height: 80px;
+  --dropdown-options-color: #4b70f5;
+  --dropdown-options-hover-color: #4c3bcf;
+  --dropdown-opitons-image-height: 50px; /* same as width */
+  --dropdown-box-background-color: #8b2525;
+  --dropdown-box-border-color: #8a47f7;
+  --dropdown-box-maxheight: 400px;
+  --dropdown-child-border-color: #7db1ff;
+  --dropdown-box-img-border-size: 2px;
+  --dropdown-box-border-size: 2px;
+  --dropdown-box-font-size: 8px;
+  --dropodwn-box-hover-color: #3a007c;
+  --dropdown-box-hover-font-color: #3dc2ec;
+/* <-----------------------  ANIMATION --------------------------> */
+  --hover-ripple-colorcode: rgb(75,112,245,0.5);
+  --ripple-colorcode: rgb(255,255,255,0.1);
+/* <------------------------- ARROW ------------------------------> */
+  --arrow-size: 16px;
+  --arrow-color: cyan;
+/* <------------------------- SUBPAGE DROPDOWN ------------------------------> */
+--subpage-dropdown-title-button-border-radius: 10px ;
+--subpage-dropdown-button-font-size: 12px;
+--subpage-dropdown-button-height: 80px;
+--subpage-dropdown-button-width: 320px;
+--subpage-dropdown-title-button-color: #4b70f5;
+--subpage-dropdown-button-border-size: 2px;
+--subpage-dropdown-button-hover-color: #3a007c;
+--subpage-dropdown-button-hover-font-color:#3dc2ec;
+--subpage-dropdown-title-image-height: 50px;
+/* <---------------------- TITLE -------------------------------> */
+--subpage-dropdown-box-font-size: 8px;
+--subpage-dropdown-box-border-size: 2px;
+--subpage-dropdown-options-max-height: 400px;
+--subpage-dropdown-options-width: 320px;
+--subpage-dropdown-opitons-image-height: 50px;
+--subpage-dropdown-box-img-border-size: 2px;
+--subpage-dropdown-options-height: 50px;
+--dropodwn-box-hover-color: #3a007c;
+--subpage-dropdown-box-hover-font-color: #3dc2ec;
+}
+
+/* <----------------------------------  MAIN PAGE LAYOUT -------------------------------> */
+
+body {
+  background-color: var(--total-page-darkshade-color);
+  font-family: "Monaco";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* <-------------------------------------- COMMON ELEMENTS ------------------------------> */
+
+div ul li {
+  list-style: none;
+}
+
+
+/* <-------------------------------------- TOTAL DROPDOWN DIV ---------------------------------->*/
+
+.total-dropdown {
+  position: fixed;
+  right: calc(var(--subpage-dropdown-button-width) + 5px);
+  top: 0;
+  z-index: 1;
+}
+
+.total-dropdown ul li span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.total-dropdown ul li h1 {
+  color: var(--dropodwn-box-hover-color);
+}
+
+/*<-------------------------------------- DROPDOWN BUTTON ALL -------------------------------->*/
+
+.dropdown-button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: var(--dropdown-title-button-border-radius);
+  font-size: var(--dropdown-button-font-size);
+  height: var(--dropdown-button-height);
+  width: var(--dropdown-button-width);
+}
+
+.dropdown-button span {
+  background-color: var(--dropdown-title-button-color);
+  width: var(--dropdown-button-width);
+  border: var(--dropdown-button-border-size) solid var(--text-color);
+  height: var(--dropdown-button-height);
+  border-radius: var(--dropdown-title-button-border-radius);
+  overflow-y: hidden;
+}
+
+.dropdown-button h1 {
+  position: relative;
+  left: 20px;
+}
+
+.dropdown-button img {
+  height: var(--dropdown-title-image-height);
+  width: var(--dropdown-title-image-height);
+  border-radius: 100%;
+  position: relative;
+  left: 50px;
+  animation: ripple 2s ease-in-out infinite;
+}
+
+/* <--------------------------------------- DROPDOWN BOX -------------------------------> */
+
+.dropdown-box {
+  display: none;
+  font-size: var(--dropdown-box-font-size);
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: var(--dropdown-box-border-size) solid var(--text-color);
+  max-height: var(--dropdown-options-max-height);
+  width: calc(var(--dropdown-options-width) + 5px);
+  border-radius: var(--dropdown-title-button-border-radius);
+}
+
+.dropdown-box img {
+  height: var(--dropdown-opitons-image-height);
+  width: var(--dropdown-opitons-image-height);
+  border: var(--dropdown-box-img-border-size) solid var(--text-color);
+  border-radius: 100%;
+  position: relative;
+  left: 10px;
+}
+
+.dropdown-box li h1 {
+  position: relative;
+  left: 80px;
+}
+
+.dropdown-box li span {
+  background-color: var(--dropdown-title-button-color);
+  overflow-y: hidden;
+  width: var(--dropdown-options-width);
+  height: var(--dropdown-options-height);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dropdown-box li:first-child {
+  border-top-left-radius: var(--dropdown-title-button-border-radius);
+  border-top-right-radius: var(--dropdown-title-button-border-radius);
+}
+
+.dropdown-box li:last-child {
+  border-bottom-left-radius: var(--dropdown-title-button-border-radius);
+  border-bottom-right-radius: var(--dropdown-title-button-border-radius);
+}
+
+/* <------------------------------------- ANIMATIONS ----------------------------------> */
+
+.total-dropdown:hover .dropdown-button span {
+  background-color: var(--dropdown-button-hover-color);
+}
+
+.total-dropdown:hover .dropdown-button h1 {
+  color: var(--dropdown-button-hover-font-color);
+}
+
+.dropdown-box li span:hover {
+  background-color: var(--dropodwn-box-hover-color);
+}
+
+.dropdown-box li span:hover h1 {
+  color: var(--dropdown-box-hover-font-color);
+}
+
+.dropdown-box li span:hover img {
+  animation: optionsripple 0.3s linear infinite;
+}
+
+.total-dropdown:hover .arrow-space .arrow {
+  display: inline-block;
+}
+
+.dropdown-button:hover + .arrow-space + .dropdown-box,
+.dropdown-button:active + .arrow-space + .dropdown-box ,
+.arrow-space:hover + .dropdown-box,
+.arrow-space:hover + .dropdown-button,
+.dropdown-box:hover {
+  display: block;
+  animation: box 6s ease forwards;
+  animation-iteration-count: 1;
+}
+
+.total-dropdown:hover .dropdown-button img {
+  animation: hoverripple 0.3s linear infinite
+}
+
+/* <----------------------------------  DROPDOWN SCROLLBAR ---------------------------------> */
+
+.dropdown-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropdown-box::-webkit-scrollbar-track {
+  background: var(--dropdown-title-button-color);
+  border-radius: var(--dropdown-title-button-border-radius);
+}
+
+.dropdown-box::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  border-radius: var(--dropdown-title-button-border-radius);
+}
+
+.dropdown-box::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+  border-top-color: var(--text-color);
+  border-bottom-color: var(--text-color);
+}
+
+/* <--------------------------------------  DROPDOWN ARROW ---------------------------------> */
+
+.arrow-space {
+  width: var(--dropdown-button-width);
+  height: 20px;
+  border-radius: var(--dropdown-title-button-border-radius);
+}
+
+.arrow {
+  display: none;
+  width: 0;
+  height: 0;
+  border-left: var(--arrow-size) solid transparent;
+  border-bottom: var(--arrow-size) solid var(--arrow-color);
+  transform: rotate(-135deg);
+  position: absolute;
+  margin-top: 7px;
+  margin-left: 10px;
+}
+
+/* <---------------------------------------------- MISC ---------------------------------------------> */
+
+.main-page-class {
+  position: relative;
+  text-align: center;
+  top: 50vh;
+  z-index: 0;
+}
+
+/* <-------------------------------------------  ANIMATIONS FRAMES ---------------------------------> */
+
+
+@keyframes box {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--dropdown-box-maxheight);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 var(--ripple-colorcode),
+                0 0 0 20px var(--ripple-colorcode),
+                0 0 0 40px var(--ripple-colorcode),
+                0 0 0 60px var(--ripple-colorcode);
+  }
+  100% {
+    box-shadow: 0 0 0 20px var(--ripple-colorcode),
+                0 0 0 40px var(--ripple-colorcode),
+                0 0 0 60px var(--ripple-colorcode),
+                0 0 0 80px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes hoverripple {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover-ripple-colorcode),
+                0 0 0 20px var(--hover-ripple-colorcode),
+                0 0 0 40px var(--hover-ripple-colorcode),
+                0 0 0 60px var(--hover-ripple-colorcode);
+  }
+  100% {
+    box-shadow: 0 0 0 20px var(--hover-ripple-colorcode),
+                0 0 0 40px var(--hover-ripple-colorcode),
+                0 0 0 60px var(--hover-ripple-colorcode),
+                0 0 0 80px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes optionsripple {
+  0% {
+    box-shadow: 0 0 0 0 var(--ripple-colorcode),
+                0 0 0 8px var(--ripple-colorcode),
+                0 0 0 16px var(--ripple-colorcode),
+                0 0 0 24px var(--ripple-colorcode);
+  }
+  100% {
+    box-shadow: 0 0 0 8px var(--ripple-colorcode),
+                0 0 0 16px var(--ripple-colorcode),
+                0 0 0 24px var(--ripple-colorcode),
+                0 0 0 32px rgba(255, 255, 255, 0);
+  }
+}
+
+/* <-------------------------------------- SUBPAGE DROPDOWN ---------------------------------->*/
+.subpage-total-dropdown {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.subpage-total-dropdown ul li span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.subpage-total-dropdown ul li h1 {
+  color: var(--dropodwn-box-hover-color);
+}
+
+/* <--------------------------------------- SUBPAGE DROPDOWN BUTTON -------------------------------> */
+
+.subpage-dropdown-button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: var(--subpage-dropdown-title-button-border-radius);
+  font-size: var(--subpage-dropdown-button-font-size);
+  height: var(--subpage-dropdown-button-height);
+  width: var(--subpage-dropdown-button-width);
+}
+
+.subpage-dropdown-button span {
+  background-color: var(--subpage-dropdown-title-button-color);
+  width: var(--subpage-dropdown-button-width);
+  border: var(--subpage-dropdown-button-border-size) solid var(--text-color);
+  height: var(--subpage-dropdown-button-height);
+  border-radius: var(--subpage-dropdown-title-button-border-radius);
+  overflow-y: hidden;
+}
+
+.subpage-dropdown-button h1 {
+  position: relative;
+  left: 20px;
+}
+
+.subpage-dropdown-button img {
+  height: var(--subpage-dropdown-title-image-height);
+  width: var(--subpage-dropdown-title-image-height);
+  border-radius: 100%;
+  position: relative;
+  left: 50px;
+  animation: ripple 2s ease-in-out infinite;
+}
+
+/* <--------------------------------------- SUBPAGE DROPDOWN BOX -------------------------------> */
+
+.subpage-dropdown-box {
+  display: none;
+  font-size: var(--subpage-dropdown-box-font-size);
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: var(--subpage-dropdown-box-border-size) solid var(--text-color);
+  max-height: var(--subpage-dropdown-options-max-height);
+  width: calc(var(--subpage-dropdown-options-width) + 5px);
+  border-radius: var(--subpage-dropdown-title-button-border-radius);
+}
+
+.subpage-dropdown-box img {
+  height: var(--subpage-dropdown-opitons-image-height);
+  width: var(--subpage-dropdown-opitons-image-height);
+  border: var(--subpage-dropdown-box-img-border-size) solid var(--text-color);
+  border-radius: 100%;
+  position: relative;
+  left: 10px;
+}
+
+.subpage-dropdown-box h1 {
+  position: relative;
+  left: 50px;
+}
+
+.subpage-dropdown-box li span {
+  background-color: var(--subpage-dropdown-title-button-color);
+  overflow-y: hidden;
+  width: var(--subpage-dropdown-options-width);
+  height: var(--subpage-dropdown-options-height);
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.subpage-dropdown-box li:first-child {
+  border-top-left-radius: var(--subpage-dropdown-title-button-border-radius);
+  border-top-right-radius: var(--subpage-dropdown-title-button-border-radius);
+}
+
+.subpage-dropdown-box li:last-child {
+  border-bottom-left-radius: var(--subpage-dropdown-title-button-border-radius);
+  border-bottom-right-radius: var(--subpage-dropdown-title-button-border-radius);
+}
+
+/* <--------------------------------- SUBPAGE SCROLLBAR -------------------------i*/
+
+.subpage-dropdown-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.subpage-dropdown-box::-webkit-scrollbar-track {
+  background: var(--subpage-dropdown-title-button-color);
+  border-radius: var(--subpage-dropdown-title-button-border-radius);
+}
+
+.subpage-dropdown-box::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  border-radius: var(--subpage-dropdown-title-button-border-radius);
+}
+
+.subpage-dropdown-box::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+  border-top-color: var(--text-color);
+  border-bottom-color: var(--text-color);
+}
+
+/* <------------------------------------- SUBPAGE ANIMATIONS ----------------------------------> */
+
+.subpage-total-dropdown:hover .subpage-dropdown-button span {
+  background-color: var(--subpage-dropdown-button-hover-color);
+}
+
+.subpage-total-dropdown:hover .subpage-dropdown-button h1 {
+  color: var(--subpage-dropdown-button-hover-font-color);
+}
+
+.subpage-dropdown-box li span:hover {
+  background-color: var(--dropodwn-box-hover-color);
+}
+
+.subpage-dropdown-box li span:hover h1 {
+  color: var(--subpage-dropdown-box-hover-font-color);
+}
+
+.subpage-dropdown-box li span:hover img {
+  animation: optionsripple 0.3s linear infinite;
+}
+
+.subpage-total-dropdown:hover .arrow-space .arrow {
+  display: inline-block;
+}
+
+.subpage-dropdown-button:hover + .arrow-space + .subpage-dropdown-box,
+.subpage-dropdown-button:active + .arrow-space + .subpage-dropdown-box ,
+.arrow-space:hover + .subpage-dropdown-box,
+.arrow-space:hover + .subpage-dropdown-button,
+.subpage-dropdown-box:hover {
+  display: block;
+  animation: box 6s ease forwards;
+  animation-iteration-count: 1;
+}
+
+.subpage-total-dropdown:hover .subpage-dropdown-button img {
+  animation: hoverripple 0.3s linear infinite
+}
+
+/* <------------------------------- END -------------------------------------------------> */
