@@ -1,20 +1,21 @@
 :root {
 /* <------------------------ MAIN PAGE ------------------------> */
-  --total-page-darkshade-color: #442c94;
-  --text-color: #3dc2ec;
+  --total-page-darkshade-color: #200e5c;
+  --text-color: #8ee5ff;
 /* <---------------------- TITLE -------------------------------> */
   --dropdown-title-button-color: #4b70f5;
+  --dropdown-title-button-font-color: #3a007c;
   --dropdown-title-hover-color: #4c3bcf;
   --dropdown-title-image-height: 50px; /* same as width */
   --dropdown-title-button-border-radius: 10px;
-  --dropdown-button-width: 300px;
+  --dropdown-button-width: 320px;
   --dropdown-button-height: 80px;
   --dropdown-button-font-size: 12px;
   --dropdown-button-border-size: 2px;
   --dropdown-button-hover-color: #3a007c;
   --dropdown-button-hover-font-color: #3dc2ec;
 /* <--------------------- OPTIONS ------------------------------> */
-  --dropdown-options-width: 300px;
+  --dropdown-options-width: 320px;
   --dropdown-options-max-height: 250px;
   --dropdown-options-height: 80px;
   --dropdown-options-color: #4b70f5;
@@ -30,7 +31,8 @@
   --dropodwn-box-hover-color: #3a007c;
   --dropdown-box-hover-font-color: #3dc2ec;
 /* <-----------------------  ANIMATION --------------------------> */
-  --hover-ripple-colorcode: rgb(75,112,245,0.5);
+  --hover-ripple-colorcode: rgba(75, 106, 245, 0.5);
+  --drop-hover-ripple-colorcode: rgba(0, 255, 255, 0.5);
   --ripple-colorcode: rgb(255,255,255,0.1);
 /* <------------------------- ARROW ------------------------------> */
   --arrow-size: 16px;
@@ -39,7 +41,7 @@
 --subpage-dropdown-title-button-border-radius: 10px ;
 --subpage-dropdown-button-font-size: 12px;
 --subpage-dropdown-button-height: 80px;
---subpage-dropdown-button-width: 320px;
+--subpage-dropdown-button-width: 330px;
 --subpage-dropdown-title-button-color: #4b70f5;
 --subpage-dropdown-button-border-size: 2px;
 --subpage-dropdown-button-hover-color: #3a007c;
@@ -64,15 +66,114 @@ body {
   font-family: "Monaco";
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--total-page-darkshade-color);
+  border-radius: var(--dropdown-title-button-border-radius);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  border-radius: var(--dropdown-title-button-border-radius);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+  border-top-color: var(--text-color);
+  border-bottom-color: var(--text-color);
+}
+
+
+#_pages_content .subpage-content {
+  color: var(--text-color);
+  position: relative;
+  top: 20vh;
+  z-index: 0;
+  height: auto;
+  margin-left: 20px;
+}
+
+#_pages_content .subpage-content .heading-divs .page-heading {
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  border: 5px solid var(--dropdown-title-button-color);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#_pages_content .subpage-content .heading-divs {
+  text-align: center;
+}
+
+#_pages_content .subpage-content .main-heading {
+  border: 5px solid red;
+  display:  inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 3em;
+  color: cyan;
+}
+
+
+#_pages_content .subpage-content .index-second-heading {
+  margin-top: 20px;
+}
+
+
+#_pages_content .subpage-content .subpage-markdown {
+  margin-top: 50px;
+  line-height: 2em;
+  font-size: 1.2em;
+  padding: 50px;
+}
+
+#_pages_content .subpage-content .subpage-markdown-2 {
+  display: inline-block;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+#_pages_content .subpage-content .subpage-markdown-2 h2 {
+  padding: 20px;
+}
+
+#_pages_content .subpage-content .subpage-markdown-2 h3 {
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 50px;
+}
+
+.graph-content {
+  height: 100vh;
+  border: 2px solid cyan;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+.loading-cube {
+  position: absolute;
+  top: 25vh;
+  left: 50vw;
+}
+
 /* <-------------------------------------- COMMON ELEMENTS ------------------------------> */
 
-div ul li {
+.total-dropdown ul li {
+  list-style: none;
+}
+
+.subpage-total-dropdown ul li {
   list-style: none;
 }
 
@@ -81,7 +182,7 @@ div ul li {
 
 .total-dropdown {
   position: fixed;
-  right: calc(var(--subpage-dropdown-button-width) + 5px);
+  right: var(--subpage-dropdown-button-width);  /* change the total main dropdown here */
   top: 0;
   z-index: 1;
 }
@@ -89,10 +190,6 @@ div ul li {
 .total-dropdown ul li span {
   display: inline-flex;
   align-items: center;
-}
-
-.total-dropdown ul li h1 {
-  color: var(--dropodwn-box-hover-color);
 }
 
 /*<-------------------------------------- DROPDOWN BUTTON ALL -------------------------------->*/
@@ -119,6 +216,8 @@ div ul li {
 .dropdown-button h1 {
   position: relative;
   left: 20px;
+  letter-spacing: 2px;
+  color: var(--dropdown-title-button-font-color);
 }
 
 .dropdown-button img {
@@ -153,9 +252,13 @@ div ul li {
   left: 10px;
 }
 
-.dropdown-box li h1 {
+.dropdown-link {
   position: relative;
   left: 80px;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
 }
 
 .dropdown-box li span {
@@ -192,7 +295,7 @@ div ul li {
   background-color: var(--dropodwn-box-hover-color);
 }
 
-.dropdown-box li span:hover h1 {
+.dropdown-box li span:hover .dropdown-link {
   color: var(--dropdown-box-hover-font-color);
 }
 
@@ -210,7 +313,7 @@ div ul li {
 .arrow-space:hover + .dropdown-button,
 .dropdown-box:hover {
   display: block;
-  animation: box 6s ease forwards;
+  animation: box 3s ease forwards;
   animation-iteration-count: 1;
 }
 
@@ -262,12 +365,6 @@ div ul li {
 
 /* <---------------------------------------------- MISC ---------------------------------------------> */
 
-.main-page-class {
-  position: relative;
-  text-align: center;
-  top: 50vh;
-  z-index: 0;
-}
 
 /* <-------------------------------------------  ANIMATIONS FRAMES ---------------------------------> */
 
@@ -313,15 +410,15 @@ div ul li {
 
 @keyframes optionsripple {
   0% {
-    box-shadow: 0 0 0 0 var(--ripple-colorcode),
-                0 0 0 8px var(--ripple-colorcode),
-                0 0 0 16px var(--ripple-colorcode),
-                0 0 0 24px var(--ripple-colorcode);
+    box-shadow: 0 0 0 0 var(--drop-hover-ripple-colorcode),
+                0 0 0 8px var(--drop-hover-ripple-colorcode),
+                0 0 0 16px var(--drop-hover-ripple-colorcode),
+                0 0 0 24px var(--drop-hover-ripple-colorcode);
   }
   100% {
-    box-shadow: 0 0 0 8px var(--ripple-colorcode),
-                0 0 0 16px var(--ripple-colorcode),
-                0 0 0 24px var(--ripple-colorcode),
+    box-shadow: 0 0 0 8px var(--drop-hover-ripple-colorcode),
+                0 0 0 16px var(--drop-hover-ripple-colorcode),
+                0 0 0 24px var(--drop-hover-ripple-colorcode),
                 0 0 0 32px rgba(255, 255, 255, 0);
   }
 }
@@ -332,15 +429,6 @@ div ul li {
   right: 0;
   top: 0;
   z-index: 1;
-}
-
-.subpage-total-dropdown ul li span {
-  display: inline-flex;
-  align-items: center;
-}
-
-.subpage-total-dropdown ul li h1 {
-  color: var(--dropodwn-box-hover-color);
 }
 
 /* <--------------------------------------- SUBPAGE DROPDOWN BUTTON -------------------------------> */
@@ -362,11 +450,15 @@ div ul li {
   height: var(--subpage-dropdown-button-height);
   border-radius: var(--subpage-dropdown-title-button-border-radius);
   overflow-y: hidden;
+  display: inline-flex;
+  align-items: center;
 }
 
 .subpage-dropdown-button h1 {
   position: relative;
   left: 20px;
+  letter-spacing: 2px;
+  color: var(--dropodwn-box-hover-color);
 }
 
 .subpage-dropdown-button img {
@@ -401,21 +493,30 @@ div ul li {
   left: 10px;
 }
 
-.subpage-dropdown-box h1 {
-  position: relative;
-  left: 50px;
+.subpage-dropdown-box li {
+  text-align: center;
 }
 
 .subpage-dropdown-box li span {
   background-color: var(--subpage-dropdown-title-button-color);
-  overflow-y: hidden;
   width: var(--subpage-dropdown-options-width);
   height: var(--subpage-dropdown-options-height);
   text-align: center;
+  align-items: center;
   vertical-align: middle;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  display: inline-flex;
+}
+
+.subpage-link {
+  position: relative;
+  left: 50px;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
 }
 
 .subpage-dropdown-box li:first-child {
@@ -464,7 +565,7 @@ div ul li {
   background-color: var(--dropodwn-box-hover-color);
 }
 
-.subpage-dropdown-box li span:hover h1 {
+.subpage-dropdown-box li span:hover .subpage-link {
   color: var(--subpage-dropdown-box-hover-font-color);
 }
 
@@ -474,6 +575,7 @@ div ul li {
 
 .subpage-total-dropdown:hover .arrow-space .arrow {
   display: inline-block;
+  margin-right: calc(var(--subpage-dropdown-button-width) + 10px);
 }
 
 .subpage-dropdown-button:hover + .arrow-space + .subpage-dropdown-box,
@@ -482,12 +584,12 @@ div ul li {
 .arrow-space:hover + .subpage-dropdown-button,
 .subpage-dropdown-box:hover {
   display: block;
-  animation: box 6s ease forwards;
+  animation: box 3s ease forwards;
   animation-iteration-count: 1;
 }
 
 .subpage-total-dropdown:hover .subpage-dropdown-button img {
-  animation: hoverripple 0.3s linear infinite
+  animation: hoverripple 0.3s linear infinite;
 }
 
 /* <------------------------------- END -------------------------------------------------> */
