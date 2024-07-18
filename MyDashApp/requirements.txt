@@ -1,0 +1,14 @@
+numpy
+pyarrow
+pandas
+polars
+plotly
+dash
+scikit-learn
+catboost
+xgboost
+fitter
+Flask
+duckdb
+dash-bootstrap-components
+gunicorn
